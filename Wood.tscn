@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7b37jeap3l8b"]
+
+[ext_resource type="Texture2D" uid="uid://ctu7hjrvwe5xi" path="res://Ikuyo_Kita_Character_Design_2.webp" id="1_1kvod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tkwk"]
+size = Vector2(76, 241)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_1kvod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 4.5)
+shape = SubResource("RectangleShape2D_8tkwk")

@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://qef2mjlgxlip"]
+[gd_scene load_steps=5 format=3 uid="uid://qef2mjlgxlip"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_31cmm"]
+[ext_resource type="Texture2D" uid="uid://b4k6c3gprix8l" path="res://Untitled-1.png" id="2_k5mg6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w0ted"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tylu5"]
+radius = 129.757
 
 [node name="RigidBody2D" type="RigidBody2D"]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_w0ted")
+gravity_scale = 0.0
+linear_damp_mode = 1
+script = ExtResource("1_31cmm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_tylu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k5mg6")

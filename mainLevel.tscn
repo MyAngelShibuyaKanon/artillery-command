@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://da46jqyrtye75"]
+
+[ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://grass.tscn" id="1_sy86d"]
+[ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://artillery.tscn" id="3_6ldf0"]
+[ext_resource type="Texture2D" uid="uid://uv3j3eqcba43" path="res://Haztce_bocchi-0dda2f63.png" id="4_32a26"]
+[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Wood.tscn" id="5_ae35t"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="5_ymcnu"]
+
+[node name="mainLevel" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_sy86d")]
+position = Vector2(925, 1014)
+scale = Vector2(18.225, 1)
+
+[node name="Artillery" parent="." instance=ExtResource("3_6ldf0")]
+position = Vector2(390, 771)
+scale = Vector2(0.42, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(374, 1288)
+scale = Vector2(1.38, 1.38)
+texture = ExtResource("4_32a26")
+script = ExtResource("5_ymcnu")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("5_ae35t")]
+position = Vector2(1685, 811)

@@ -1,18 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2f4yiiwt4mdg"]
+[gd_scene load_steps=3 format=3 uid="uid://c2f4yiiwt4mdg"]
+
+[ext_resource type="Script" path="res://label.gd" id="3_w45fs"]
 
 [sub_resource type="GDScript" id="GDScript_njtgv"]
 script/source = "extends Node2D
+var mainMenuScene = load(\"res://main_menu.tscn\")
+var mainLevelScene = load(\"res://mainLevel.tscn\")
 
+var curSceneLoaded
+var gameState;
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	gameState = Global.gameStates.Start
+	instantiateScene(mainMenuScene)
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func changeGameState(state: Global.gameStates) -> void:
+	gameState = state
+	
+	match gameState:
+		Global.gameStates.Start:
+			curSceneLoaded.queue_free()
+			instantiateScene(mainMenuScene)
+
+		Global.gameStates.Playing:
+			curSceneLoaded.queue_free()
+			instantiateScene(mainLevelScene)
+
+		Global.gameStates.End:
+			curSceneLoaded.queue_free()
+	pass
+
+func instantiateScene(scene: PackedScene) -> void:
+	curSceneLoaded = scene.instantiate()
+	add_child(curSceneLoaded)
 "
 
 [node name="gameMaster" type="Node2D"]
 script = SubResource("GDScript_njtgv")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_w45fs")
