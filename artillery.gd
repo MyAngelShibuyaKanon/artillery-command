@@ -6,9 +6,13 @@ var projectile
 var barrelPos
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	barrelPos = $Wheel/Barrel/Node2D.get_global_position()
 	angle = $Angle.value
 	force = $Force.value
+	
+	$Wheel/Barrel.set_rotation_degrees(- angle)
+	
+	barrelPos = $Wheel/Barrel/Node2D.get_global_position()
+	
 	pass # Replace with function body.
 
 

@@ -2,25 +2,36 @@
 
 [ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://grass.tscn" id="1_sy86d"]
 [ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://artillery.tscn" id="3_6ldf0"]
-[ext_resource type="Texture2D" uid="uid://uv3j3eqcba43" path="res://Haztce_bocchi-0dda2f63.png" id="4_32a26"]
 [ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Wood.tscn" id="5_ae35t"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="5_ymcnu"]
+[ext_resource type="PackedScene" uid="uid://dkrehvt1e6bfg" path="res://ruler.tscn" id="6_x2edp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5pa"]
+size = Vector2(7.97, 4000)
 
 [node name="mainLevel" type="Node2D"]
-
-[node name="StaticBody2D" parent="." instance=ExtResource("1_sy86d")]
-position = Vector2(925, 1014)
-scale = Vector2(18.225, 1)
+metadata/_edit_horizontal_guides_ = [803.0]
+metadata/_edit_vertical_guides_ = [22500.0]
 
 [node name="Artillery" parent="." instance=ExtResource("3_6ldf0")]
 position = Vector2(390, 771)
 scale = Vector2(0.42, 0.42)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(374, 1288)
-scale = Vector2(1.38, 1.38)
-texture = ExtResource("4_32a26")
-script = ExtResource("5_ymcnu")
-
 [node name="RigidBody2D" parent="." instance=ExtResource("5_ae35t")]
-position = Vector2(1685, 811)
+position = Vector2(1428, 818)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("1_sy86d")]
+position = Vector2(0, 1105)
+
+[node name="Ruler" parent="." instance=ExtResource("6_x2edp")]
+
+[node name="Border1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border1"]
+position = Vector2(-4, -895)
+shape = SubResource("RectangleShape2D_tr5pa")
+
+[node name="Border2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border2"]
+position = Vector2(22504.1, -895)
+shape = SubResource("RectangleShape2D_tr5pa")
