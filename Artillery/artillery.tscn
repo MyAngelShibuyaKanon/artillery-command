@@ -1,22 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://rkjf1ikyafcd"]
+[gd_scene load_steps=5 format=3 uid="uid://deak8eqq18tgd"]
 
-[ext_resource type="Script" path="res://Artillery/artillery.gd" id="1_0tgx4"]
-[ext_resource type="Texture2D" uid="uid://bjj1ul7rttkok" path="res://Textures/artilleryWheel.png" id="2_txkpj"]
-[ext_resource type="Texture2D" uid="uid://svrlv6i358oi" path="res://Textures/artilleryBarrel.png" id="3_spvix"]
-[ext_resource type="Texture2D" uid="uid://cvpdnsr80siv8" path="res://Textures/artilleryRing.png" id="4_clxxs"]
+[ext_resource type="Texture2D" uid="uid://cypf73ek5rccq" path="res://artilleryWheel.png" id="1_0dotr"]
+[ext_resource type="Script" path="res://artillery.gd" id="1_7s5at"]
+[ext_resource type="Texture2D" uid="uid://1fpkg1ieaowp" path="res://artilleryBarrel.png" id="2_s374q"]
+[ext_resource type="Texture2D" uid="uid://12tac7qjydkx" path="res://artilleryRing.png" id="3_5ke8s"]
 
 [node name="Artillery" type="Node2D"]
-script = ExtResource("1_0tgx4")
+script = ExtResource("1_7s5at")
 
 [node name="Wheel" type="Sprite2D" parent="."]
-texture = ExtResource("2_txkpj")
+texture = ExtResource("1_0dotr")
 
 [node name="Barrel" type="Sprite2D" parent="Wheel"]
 rotation = -1.07861
-texture = ExtResource("3_spvix")
+texture = ExtResource("2_s374q")
 
 [node name="Ring" type="Sprite2D" parent="Wheel/Barrel"]
-texture = ExtResource("4_clxxs")
+texture = ExtResource("3_5ke8s")
 
 [node name="Node2D" type="Node2D" parent="Wheel/Barrel"]
 position = Vector2(809, -136)

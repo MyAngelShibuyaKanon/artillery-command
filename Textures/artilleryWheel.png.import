@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cypf73ek5rccq"
-path="res://.godot/imported/artilleryWheel.png-096595e9f52bb7984f1bcd2a4ea56902.ctex"
+uid="uid://bjj1ul7rttkok"
+path="res://.godot/imported/artilleryWheel.png-8854e85d1645911f9e89c3bf7262fb78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artilleryWheel.png"
-dest_files=["res://.godot/imported/artilleryWheel.png-096595e9f52bb7984f1bcd2a4ea56902.ctex"]
+source_file="res://Textures/artilleryWheel.png"
+dest_files=["res://.godot/imported/artilleryWheel.png-8854e85d1645911f9e89c3bf7262fb78.ctex"]
 
 [params]
 

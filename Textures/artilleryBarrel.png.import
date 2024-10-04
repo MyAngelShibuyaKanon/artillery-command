@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctu7hjrvwe5xi"
-path="res://.godot/imported/Ikuyo_Kita_Character_Design_2.webp-dda1b8c0d80833d898c4288a5ca26851.ctex"
+uid="uid://svrlv6i358oi"
+path="res://.godot/imported/artilleryBarrel.png-4e608fbdb1a090cb4c2ba7de89046d9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ikuyo_Kita_Character_Design_2.webp"
-dest_files=["res://.godot/imported/Ikuyo_Kita_Character_Design_2.webp-dda1b8c0d80833d898c4288a5ca26851.ctex"]
+source_file="res://Textures/artilleryBarrel.png"
+dest_files=["res://.godot/imported/artilleryBarrel.png-4e608fbdb1a090cb4c2ba7de89046d9c.ctex"]
 
 [params]
 

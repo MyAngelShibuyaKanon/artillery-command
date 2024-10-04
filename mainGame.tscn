@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2f4yiiwt4mdg"]
 
-[ext_resource type="Script" path="res://label.gd" id="3_w45fs"]
+[ext_resource type="Script" path="res://Ui/label.gd" id="1_flnok"]
 
 [sub_resource type="GDScript" id="GDScript_njtgv"]
 script/source = "extends Node2D
@@ -45,4 +45,4 @@ script = SubResource("GDScript_njtgv")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("3_w45fs")
+script = ExtResource("1_flnok")

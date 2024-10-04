@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds3mcelkcctfm"]
+[gd_scene load_steps=3 format=3 uid="uid://bj43ynxq2shxr"]
 
-[ext_resource type="Texture2D" uid="uid://68k1xhx2nx8x" path="res://Textures/grass.png" id="1_jsnsy"]
+[ext_resource type="Texture2D" uid="uid://d2ugbhj6g6dl3" path="res://grass.png" id="1_gxrl8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cws0t"]
 
@@ -10,7 +10,7 @@ physics_material_override = SubResource("PhysicsMaterial_cws0t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11250, -180)
-texture = ExtResource("1_jsnsy")
+texture = ExtResource("1_gxrl8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

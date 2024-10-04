@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1fpkg1ieaowp"
-path="res://.godot/imported/artilleryBarrel.png-24ae999b96c3cfcf2d38107c45097f10.ctex"
+uid="uid://bd3r1audxchm0"
+path="res://.godot/imported/Untitled-1.png-16cb34f846df7e35771d67e35b0d3ed0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artilleryBarrel.png"
-dest_files=["res://.godot/imported/artilleryBarrel.png-24ae999b96c3cfcf2d38107c45097f10.ctex"]
+source_file="res://Textures/Untitled-1.png"
+dest_files=["res://.godot/imported/Untitled-1.png-16cb34f846df7e35771d67e35b0d3ed0.ctex"]
 
 [params]
 

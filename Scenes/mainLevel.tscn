@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://duur0brb1ti32"]
+[gd_scene load_steps=6 format=3 uid="uid://da46jqyrtye75"]
 
-[ext_resource type="PackedScene" uid="uid://ds3mcelkcctfm" path="res://grass.tscn" id="1_sy86d"]
-[ext_resource type="PackedScene" uid="uid://rkjf1ikyafcd" path="res://artillery.tscn" id="3_6ldf0"]
-[ext_resource type="PackedScene" uid="uid://dod15syypjk0q" path="res://Wood.tscn" id="5_ae35t"]
-[ext_resource type="PackedScene" uid="uid://bp86j8vgnlxnc" path="res://ruler.tscn" id="6_x2edp"]
+[ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://grass.tscn" id="1_sy86d"]
+[ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://artillery.tscn" id="3_6ldf0"]
+[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Wood.tscn" id="5_ae35t"]
+[ext_resource type="PackedScene" uid="uid://dkrehvt1e6bfg" path="res://ruler.tscn" id="6_x2edp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5pa"]
 size = Vector2(7.97, 4000)

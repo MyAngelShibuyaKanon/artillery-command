@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uv3j3eqcba43"
-path="res://.godot/imported/Haztce_bocchi-0dda2f63.png-22fb2d10d5bfbc2a96f3c59a87608bee.ctex"
+uid="uid://bynu1bj3adq4r"
+path="res://.godot/imported/Ikuyo_Kita_Character_Design_2.webp-e00d5a3d97124ebf716038d5b935286c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Haztce_bocchi-0dda2f63.png"
-dest_files=["res://.godot/imported/Haztce_bocchi-0dda2f63.png-22fb2d10d5bfbc2a96f3c59a87608bee.ctex"]
+source_file="res://Textures/Ikuyo_Kita_Character_Design_2.webp"
+dest_files=["res://.godot/imported/Ikuyo_Kita_Character_Design_2.webp-e00d5a3d97124ebf716038d5b935286c.ctex"]
 
 [params]
 
