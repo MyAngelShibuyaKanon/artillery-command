@@ -1,14 +1,15 @@
 extends Node2D
 var force
 var angle
-var roundToFire = load("res://projectile.tscn")
+var roundToFire = load("res://Artillery/projectile.tscn")
 var projectile
 var barrelPos
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	angle = $Angle.value
-	force = $Force.value
-	
+	angle = snapped($Angle.value, 0.1)
+	force = snapped($Force.value, 0.1)
+	$AngleText.set_text(str(angle))
+	$InitVText.set_text(str(force))
 	$Wheel/Barrel.set_rotation_degrees(- angle)
 	
 	barrelPos = $Wheel/Barrel/Node2D.get_global_position()
@@ -23,21 +24,25 @@ func _process(delta: float) -> void:
 
 func _on_angle_value_changed(value: float) -> void:
 	barrelPos = $Wheel/Barrel/Node2D.get_global_position()
-	angle = value
+	print(barrelPos)
+	angle = snapped(value, 0.1)
+	$AngleText.set_text(str(angle))
 	$Wheel/Barrel.set_rotation_degrees(- angle)
 	pass # Replace with function body.
 
 
 func _on_force_value_changed(value: float) -> void:
-	print(value)
-	force = value * Global.meter
+	force = snapped(value, 0.1)
+	$InitVText.set_text(str(force))
 	pass # Replace with function body.
 
 
 func _on_button_pressed() -> void:
 	projectile = roundToFire.instantiate()
 	projectile.angle = angle
-	projectile.force = force
+	projectile.force = force * Global.meter
+	projectile.initialPosition = barrelPos
 	projectile.set_global_position(barrelPos)
+	Global.gameMaster.disableInput()
 	add_sibling(projectile)
 	pass # Replace with function body.

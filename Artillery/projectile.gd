@@ -4,32 +4,35 @@ class_name projectile
 var gravity = Global.meter * 9.8
 var force:float;
 var angle:float;
-var startTime
 var initialPosition
 var lastVelocity
 var velocityBefCol
 var collision
-# Called when the node enters the scene tree for the first time.
+var highestPoint
+
 func _ready() -> void:
-	#print(get_global_position())
-	startTime = Time.get_unix_time_from_system()
-	linear_velocity.x = force * cos(deg_to_rad(angle))
+	
+	highestPoint = 0
+	linear_velocity.x = (force * cos(deg_to_rad(angle)))
 	linear_velocity.y = - (force * sin(deg_to_rad(angle)))
-	initialPosition = get_global_position()
-	#print(linear_velocity.x)
-	pass # Replace with function body.
+	
+	if (linear_velocity.length() >= 10 && !sleeping) :
+		$Camera2D.set_enabled(true)
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	collision = move_and_collide(linear_velocity * delta)
+	if (linear_velocity.length() <= 10 && !sleeping) :
+		set_sleeping(true)
+		$Camera2D.set_enabled(false)
+	if (get_global_position().y < highestPoint):
+		highestPoint = get_global_position().y
+	
+	collision = move_and_collide(Vector2.ZERO)
 	if (collision):
 		velocityBefCol = lastVelocity
+	
 	linear_velocity.y += gravity * delta
 	
 	lastVelocity = linear_velocity.length()
 	pass
-
-
-func _on_body_entered(body: Node) -> void:
-	pass # Replace with function body.

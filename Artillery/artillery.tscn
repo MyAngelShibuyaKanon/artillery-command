@@ -1,22 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://deak8eqq18tgd"]
 
-[ext_resource type="Texture2D" uid="uid://cypf73ek5rccq" path="res://artilleryWheel.png" id="1_0dotr"]
-[ext_resource type="Script" path="res://artillery.gd" id="1_7s5at"]
-[ext_resource type="Texture2D" uid="uid://1fpkg1ieaowp" path="res://artilleryBarrel.png" id="2_s374q"]
-[ext_resource type="Texture2D" uid="uid://12tac7qjydkx" path="res://artilleryRing.png" id="3_5ke8s"]
+[ext_resource type="Script" path="res://Artillery/artillery.gd" id="1_h7y1k"]
+[ext_resource type="Texture2D" uid="uid://bjj1ul7rttkok" path="res://Textures/artilleryWheel.png" id="2_dc08h"]
+[ext_resource type="Texture2D" uid="uid://svrlv6i358oi" path="res://Textures/artilleryBarrel.png" id="3_o6xvk"]
+[ext_resource type="Texture2D" uid="uid://cvpdnsr80siv8" path="res://Textures/artilleryRing.png" id="4_lk51x"]
 
 [node name="Artillery" type="Node2D"]
-script = ExtResource("1_7s5at")
+script = ExtResource("1_h7y1k")
 
 [node name="Wheel" type="Sprite2D" parent="."]
-texture = ExtResource("1_0dotr")
+texture = ExtResource("2_dc08h")
 
 [node name="Barrel" type="Sprite2D" parent="Wheel"]
-rotation = -1.07861
-texture = ExtResource("2_s374q")
+texture = ExtResource("3_o6xvk")
 
 [node name="Ring" type="Sprite2D" parent="Wheel/Barrel"]
-texture = ExtResource("3_5ke8s")
+texture = ExtResource("4_lk51x")
 
 [node name="Node2D" type="Node2D" parent="Wheel/Barrel"]
 position = Vector2(809, -136)
@@ -27,8 +26,8 @@ offset_top = -695.0
 offset_right = 434.0
 offset_bottom = -605.0
 min_value = -50.0
-max_value = 50.0
-step = 0.1
+max_value = 90.0
+step = 0.0
 
 [node name="Force" type="HSlider" parent="."]
 offset_left = -433.0
@@ -45,6 +44,22 @@ offset_right = 956.0
 offset_bottom = -491.0
 theme_override_font_sizes/font_size = 106
 text = "Fire!"
+
+[node name="AngleText" type="Label" parent="."]
+offset_left = -653.0
+offset_top = -673.0
+offset_right = -477.0
+offset_bottom = -619.0
+theme_override_font_sizes/font_size = 36
+text = "Uwu"
+
+[node name="InitVText" type="Label" parent="."]
+offset_left = -654.0
+offset_top = -552.0
+offset_right = -460.0
+offset_bottom = -499.0
+theme_override_font_sizes/font_size = 36
+text = "uwu"
 
 [connection signal="value_changed" from="Angle" to="." method="_on_angle_value_changed"]
 [connection signal="value_changed" from="Force" to="." method="_on_force_value_changed"]

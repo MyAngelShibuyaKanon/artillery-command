@@ -4,8 +4,8 @@
 
 [sub_resource type="GDScript" id="GDScript_njtgv"]
 script/source = "extends Node2D
-var mainMenuScene = load(\"res://main_menu.tscn\")
-var mainLevelScene = load(\"res://mainLevel.tscn\")
+var mainMenuScene = load(\"res://Scenes/main_menu.tscn\")
+var mainLevelScene = load(\"res://Scenes/mainLevel.tscn\")
 
 var curSceneLoaded
 var gameState;
@@ -37,6 +37,9 @@ func changeGameState(state: Global.gameStates) -> void:
 func instantiateScene(scene: PackedScene) -> void:
 	curSceneLoaded = scene.instantiate()
 	add_child(curSceneLoaded)
+	
+func disableInput():
+	set_process_input(false)
 "
 
 [node name="gameMaster" type="Node2D"]
@@ -46,3 +49,7 @@ script = SubResource("GDScript_njtgv")
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("1_flnok")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(959, 538)
+enabled = false

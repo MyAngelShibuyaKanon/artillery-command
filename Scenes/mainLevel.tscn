@@ -1,37 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://da46jqyrtye75"]
+[gd_scene load_steps=7 format=3 uid="uid://da46jqyrtye75"]
 
-[ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://grass.tscn" id="1_sy86d"]
-[ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://artillery.tscn" id="3_6ldf0"]
-[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Wood.tscn" id="5_ae35t"]
-[ext_resource type="PackedScene" uid="uid://dkrehvt1e6bfg" path="res://ruler.tscn" id="6_x2edp"]
+[ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://Artillery/artillery.tscn" id="1_nchq4"]
+[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Materials/Wood.tscn" id="2_jt31c"]
+[ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://Environment/grass.tscn" id="3_oh7ge"]
+[ext_resource type="PackedScene" uid="uid://c3tagotqqwd6d" path="res://Ui/ruler.tscn" id="4_vjhoy"]
+[ext_resource type="PackedScene" uid="uid://bcad0l6h7atd0" path="res://Materials/steel.tscn" id="5_qpt6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5pa"]
-size = Vector2(7.97, 4000)
+size = Vector2(7.97, 8000)
 
 [node name="mainLevel" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [803.0]
-metadata/_edit_vertical_guides_ = [22500.0]
+metadata/_edit_horizontal_guides_ = [803.0, 988.0, 712.0, 1080.0]
+metadata/_edit_vertical_guides_ = [22500.0, 4522.0]
 
-[node name="Artillery" parent="." instance=ExtResource("3_6ldf0")]
+[node name="Artillery" parent="." instance=ExtResource("1_nchq4")]
 position = Vector2(390, 771)
 scale = Vector2(0.42, 0.42)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("5_ae35t")]
-position = Vector2(1428, 818)
+[node name="RigidBody2D" parent="." instance=ExtResource("2_jt31c")]
+position = Vector2(4427, 868)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("1_sy86d")]
+[node name="RigidBody2D2" parent="." instance=ExtResource("2_jt31c")]
+position = Vector2(4637, 870)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("2_jt31c")]
+position = Vector2(4523, 706)
+rotation = 1.5708
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_oh7ge")]
 position = Vector2(0, 1105)
 
-[node name="Ruler" parent="." instance=ExtResource("6_x2edp")]
+[node name="Ruler" parent="." instance=ExtResource("4_vjhoy")]
 
 [node name="Border1" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border1"]
-position = Vector2(-4, -895)
+position = Vector2(-4, -2894)
 shape = SubResource("RectangleShape2D_tr5pa")
 
 [node name="Border2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border2"]
-position = Vector2(22504.1, -895)
+position = Vector2(22503, -2895)
 shape = SubResource("RectangleShape2D_tr5pa")
+
+[node name="material" parent="Border2" instance=ExtResource("5_qpt6a")]
+position = Vector2(1654, 848)

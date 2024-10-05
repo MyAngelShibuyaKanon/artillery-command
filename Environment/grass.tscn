@@ -1,8 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj43ynxq2shxr"]
 
-[ext_resource type="Texture2D" uid="uid://d2ugbhj6g6dl3" path="res://grass.png" id="1_gxrl8"]
+[ext_resource type="Texture2D" uid="uid://68k1xhx2nx8x" path="res://Textures/grass.png" id="1_e0mdh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cws0t"]
+rough = true
 
 [node name="StaticBody2D" type="StaticBody2D"]
 disable_mode = 1
@@ -10,7 +11,7 @@ physics_material_override = SubResource("PhysicsMaterial_cws0t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11250, -180)
-texture = ExtResource("1_gxrl8")
+texture = ExtResource("1_e0mdh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
