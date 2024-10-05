@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://btxhoqaieawbk"]
+
+[ext_resource type="PackedScene" uid="uid://5tsjtrpalq6q" path="res://Enemy/enemy.tscn" id="1_2oavo"]
+[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Materials/Wood.tscn" id="2_phn53"]
+
+[node name="base3" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_2oavo")]
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("2_phn53")]
+position = Vector2(144, -23)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("2_phn53")]
+position = Vector2(-156, -24)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("2_phn53")]
+position = Vector2(-6, -195)
+rotation = 1.5708

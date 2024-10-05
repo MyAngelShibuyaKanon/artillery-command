@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://deak8eqq18tgd"]
+[gd_scene load_steps=9 format=3 uid="uid://deak8eqq18tgd"]
 
 [ext_resource type="Script" path="res://Artillery/artillery.gd" id="1_h7y1k"]
 [ext_resource type="Texture2D" uid="uid://bjj1ul7rttkok" path="res://Textures/artilleryWheel.png" id="2_dc08h"]
 [ext_resource type="Texture2D" uid="uid://svrlv6i358oi" path="res://Textures/artilleryBarrel.png" id="3_o6xvk"]
 [ext_resource type="Texture2D" uid="uid://cvpdnsr80siv8" path="res://Textures/artilleryRing.png" id="4_lk51x"]
+[ext_resource type="AudioStream" uid="uid://b3qbmentdd4d0" path="res://audio/EFX EXT .38 Plus Power Shots 04 B.wav" id="5_y5pro"]
+
+[sub_resource type="Curve" id="Curve_a18gn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99, 0.254302), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_duorv"]
+curve = SubResource("Curve_a18gn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vg42c"]
+particle_flag_disable_z = true
+spread = 170.327
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 30.0
+scale_max = 40.0
+scale_curve = SubResource("CurveTexture_duorv")
 
 [node name="Artillery" type="Node2D"]
 script = ExtResource("1_h7y1k")
@@ -15,10 +33,22 @@ texture = ExtResource("2_dc08h")
 texture = ExtResource("3_o6xvk")
 
 [node name="Ring" type="Sprite2D" parent="Wheel/Barrel"]
+position = Vector2(-594, -133)
+rotation = -3.83972
 texture = ExtResource("4_lk51x")
 
 [node name="Node2D" type="Node2D" parent="Wheel/Barrel"]
 position = Vector2(809, -136)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Wheel/Barrel"]
+z_index = 3
+position = Vector2(812, -133)
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_vg42c")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
 
 [node name="Angle" type="HSlider" parent="."]
 offset_left = -434.0
@@ -60,6 +90,10 @@ offset_right = -460.0
 offset_bottom = -499.0
 theme_override_font_sizes/font_size = 36
 text = "uwu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y5pro")
+volume_db = 8.0
 
 [connection signal="value_changed" from="Angle" to="." method="_on_angle_value_changed"]
 [connection signal="value_changed" from="Force" to="." method="_on_force_value_changed"]

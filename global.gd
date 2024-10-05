@@ -7,3 +7,5 @@ enum gameStates{
 }
 
 @onready var gameMaster:Node = get_node("/root/gameMaster")
+
+var Enemies = []

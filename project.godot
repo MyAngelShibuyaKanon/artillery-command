@@ -30,6 +30,7 @@ window/default_linear_damp=0.0
 [global_group]
 
 material=""
+projectile=""
 
 [physics]
 

@@ -1,34 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://da46jqyrtye75"]
+[gd_scene load_steps=11 format=3 uid="uid://da46jqyrtye75"]
 
 [ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://Artillery/artillery.tscn" id="1_nchq4"]
-[ext_resource type="PackedScene" uid="uid://c7b37jeap3l8b" path="res://Materials/Wood.tscn" id="2_jt31c"]
+[ext_resource type="Script" path="res://Scenes/main_level.gd" id="1_nhg6f"]
 [ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://Environment/grass.tscn" id="3_oh7ge"]
+[ext_resource type="PackedScene" uid="uid://btd8xgqlc25hn" path="res://Enemy/base_1.tscn" id="4_8aixu"]
 [ext_resource type="PackedScene" uid="uid://c3tagotqqwd6d" path="res://Ui/ruler.tscn" id="4_vjhoy"]
-[ext_resource type="PackedScene" uid="uid://bcad0l6h7atd0" path="res://Materials/steel.tscn" id="5_qpt6a"]
+[ext_resource type="PackedScene" uid="uid://bi0gwy6bybggl" path="res://Enemy/enemy_list.tscn" id="6_lotvf"]
+[ext_resource type="Script" path="res://Scenes/level_camera.gd" id="6_qmvmr"]
+[ext_resource type="PackedScene" uid="uid://6vlpdewxytn2" path="res://Enemy/base_2.tscn" id="8_7a0gp"]
+[ext_resource type="PackedScene" uid="uid://btxhoqaieawbk" path="res://Enemy/base_3.tscn" id="9_55a4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5pa"]
 size = Vector2(7.97, 8000)
 
 [node name="mainLevel" type="Node2D"]
+script = ExtResource("1_nhg6f")
 metadata/_edit_horizontal_guides_ = [803.0, 988.0, 712.0, 1080.0]
 metadata/_edit_vertical_guides_ = [22500.0, 4522.0]
 
 [node name="Artillery" parent="." instance=ExtResource("1_nchq4")]
 position = Vector2(390, 771)
 scale = Vector2(0.42, 0.42)
-
-[node name="RigidBody2D" parent="." instance=ExtResource("2_jt31c")]
-position = Vector2(4427, 868)
-
-[node name="RigidBody2D2" parent="." instance=ExtResource("2_jt31c")]
-position = Vector2(4637, 870)
-
-[node name="RigidBody2D3" parent="." instance=ExtResource("2_jt31c")]
-position = Vector2(4523, 706)
-rotation = 1.5708
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("3_oh7ge")]
-position = Vector2(0, 1105)
 
 [node name="Ruler" parent="." instance=ExtResource("4_vjhoy")]
 
@@ -44,5 +36,54 @@ shape = SubResource("RectangleShape2D_tr5pa")
 position = Vector2(22503, -2895)
 shape = SubResource("RectangleShape2D_tr5pa")
 
-[node name="material" parent="Border2" instance=ExtResource("5_qpt6a")]
-position = Vector2(1654, 848)
+[node name="levelCamera" type="Camera2D" parent="."]
+position = Vector2(1371, 334)
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("6_qmvmr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EnemyList" parent="CanvasLayer" instance=ExtResource("6_lotvf")]
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = 100.0
+offset_right = 126.0
+offset_bottom = 123.0
+text = "barrel position: "
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 133.0
+offset_right = 211.0
+offset_bottom = 164.0
+placeholder_text = "Enter distance here (m)"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 7.0
+offset_top = 168.0
+offset_right = 211.0
+offset_bottom = 217.0
+
+[node name="viewSlider" type="HSlider" parent="CanvasLayer"]
+offset_right = 1917.0
+offset_bottom = 40.0
+min_value = 1371.0
+max_value = 21128.0
+value = 1371.0
+
+[node name="Base2" parent="." instance=ExtResource("4_8aixu")]
+position = Vector2(18106, 868)
+
+[node name="Base3" parent="." instance=ExtResource("8_7a0gp")]
+position = Vector2(11427, 847)
+
+[node name="base3" parent="." instance=ExtResource("9_55a4n")]
+position = Vector2(5054, 862)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_oh7ge")]
+position = Vector2(6, 1125)
+
+[connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/viewSlider" to="levelCamera" method="_on_view_slider_value_changed"]

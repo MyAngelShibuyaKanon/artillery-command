@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://6vlpdewxytn2"]
+
+[ext_resource type="PackedScene" uid="uid://5tsjtrpalq6q" path="res://Enemy/enemy.tscn" id="1_q40st"]
+[ext_resource type="PackedScene" uid="uid://dmfxr78c0qvul" path="res://Materials/stone.tscn" id="2_wlbf5"]
+
+[node name="Base2" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_q40st")]
+
+[node name="material" parent="." instance=ExtResource("2_wlbf5")]
+position = Vector2(-165, -27)
+
+[node name="material2" parent="." instance=ExtResource("2_wlbf5")]
+position = Vector2(159, -26)
+
+[node name="material4" parent="." instance=ExtResource("2_wlbf5")]
+position = Vector2(287, -28)
+rotation = -0.523599
+
+[node name="material5" parent="." instance=ExtResource("2_wlbf5")]
+position = Vector2(-295, -29)
+rotation = 0.523599
+
+[node name="material3" parent="." instance=ExtResource("2_wlbf5")]
+position = Vector2(1, -207)
+rotation = 1.5708

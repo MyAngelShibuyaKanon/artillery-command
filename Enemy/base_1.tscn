@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://btd8xgqlc25hn"]
+
+[ext_resource type="PackedScene" uid="uid://bcad0l6h7atd0" path="res://Materials/steel.tscn" id="1_0bqnl"]
+[ext_resource type="PackedScene" uid="uid://5tsjtrpalq6q" path="res://Enemy/enemy.tscn" id="2_a7upw"]
+
+[node name="Base1" type="Node2D"]
+
+[node name="material" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(156, -35)
+
+[node name="material4" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(437, -31)
+
+[node name="material5" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-437, -34)
+
+[node name="material8" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(151, -369)
+
+[node name="material13" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(289, -337)
+rotation = -0.785398
+
+[node name="material9" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-153, -368)
+
+[node name="material11" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-297, -342)
+rotation = 0.785398
+
+[node name="material2" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-155, -34)
+
+[node name="material3" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-3, -201)
+rotation = 1.5708
+
+[node name="material6" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(1, -540)
+rotation = 1.5708
+
+[node name="material12" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(-297, -201)
+rotation = 1.5708
+
+[node name="material10" parent="." instance=ExtResource("1_0bqnl")]
+position = Vector2(292, -199)
+rotation = 1.5708
+
+[node name="RigidBody2D" parent="." instance=ExtResource("2_a7upw")]

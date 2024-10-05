@@ -1,7 +1,7 @@
 extends Control
-var x = 0
-var labelPos = load("res://Ui/label_pos.tscn")
-var loadedLabel
+var x:int = 0
+var labelPos:Resource = load("res://Ui/label_pos.tscn")
+var loadedLabel:Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
