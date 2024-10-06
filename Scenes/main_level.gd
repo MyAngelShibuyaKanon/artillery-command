@@ -57,19 +57,29 @@ func addEnemy(enemyInstanceId:int, pos:Vector2, maxHp) -> void:
 	dictOfEnemy.append(EnemyDict)
 
 func updateHp(EnemyInstanceId:int, hp:int):
+	var index:int = 0
 	var EnemyListingInstanceId:int
 	var Enemy = instance_from_id(EnemyInstanceId)
 	var EnemyListing:Object
 	for i in dictOfEnemy:
+		
 		if i.get("EnemyId") == EnemyInstanceId:
 			EnemyListingInstanceId = i.get("EnemyListingId")
 			EnemyListing = instance_from_id(EnemyListingInstanceId)
 			EnemyListing.updateHp(hp)
-		
+			
+			break
+		index += 1
+			
 	if Enemy.hp <= 0:
 		Enemy.queue_free()
 		EnemyListing.queue_free()
-	
+		dictOfEnemy.pop_at(index)
+		
+		
+		
+	if dictOfEnemy.is_empty():
+		Global.gameMaster.changeGameState(Global.gameStates.Start)
 	
 func updateAngle(angle:float) -> void:
 	artiAngle = angle
