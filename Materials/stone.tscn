@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dapy2puu40fn2" path="res://audio/Hit Rock Debris_RBD 02.wav" id="3_e0kfk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_25ook"]
+rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x5k2"]
 size = Vector2(52, 291)

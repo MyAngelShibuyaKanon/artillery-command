@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://khst1yj37y76" path="res://audio/Drop Fall Metal Rattle Scrap Debris_UC 10.wav" id="3_k5fet"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_it2i1"]
+rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twxa1"]
 size = Vector2(37, 291)
@@ -29,5 +30,6 @@ shape = SubResource("RectangleShape2D_twxa1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_4blpm")
+max_polyphony = 5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

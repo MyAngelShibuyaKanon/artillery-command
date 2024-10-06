@@ -22,7 +22,7 @@ func _on_body_entered(body: Node) -> void:
 			$AudioStreamPlayer.play()
 			Contacts.append(body.get_instance_id())
 		
-		var damage:int = body.velocityBefCol / Global.meter
+		var damage:int = body.velocityBefCol.length() / Global.meter
 		hp -= damage
 		print(hp)
 		visibledamage = Color(1,clamp(remap(hp, maxHp, 0, 1, 0), 0, 1), clamp(remap(hp, maxHp, 0, 1, 0), 0, 1), 1)

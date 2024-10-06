@@ -10,9 +10,11 @@ friction = 0.3
 radius = 129.757
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["projectile"]]
+position = Vector2(960, 540)
 disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_w0ted")
 gravity_scale = 0.0
+can_sleep = false
 linear_damp_mode = 1
 angular_damp = 10.0
 script = ExtResource("1_ac2rj")
@@ -29,4 +31,56 @@ texture = ExtResource("2_y3r4m")
 z_index = 2
 enabled = false
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="impactPos" type="Label" parent="CanvasLayer"]
+layout_direction = 2
+offset_left = 918.0
+offset_top = 473.0
+offset_right = 1004.0
+offset_bottom = 496.0
+text = "ImpactPos:"
+metadata/_edit_use_anchors_ = true
+
+[node name="totalTime" type="Label" parent="CanvasLayer"]
+offset_left = 917.0
+offset_top = 429.0
+offset_right = 1016.0
+offset_bottom = 452.0
+text = "Travel Time: "
+metadata/_edit_use_anchors_ = true
+
+[node name="highestPoint" type="Label" parent="CanvasLayer"]
+offset_left = 917.0
+offset_top = 451.0
+offset_right = 1030.0
+offset_bottom = 474.0
+text = "Highest Point: "
+metadata/_edit_use_anchors_ = true
+
+[node name="CurVel" type="Label" parent="CanvasLayer"]
+offset_left = 917.0
+offset_top = 409.0
+offset_right = 1051.0
+offset_bottom = 432.0
+text = "Current Velocity: "
+
+[node name="InitVel" type="Label" parent="CanvasLayer"]
+offset_left = 918.0
+offset_top = 371.0
+offset_right = 1000.0
+offset_bottom = 394.0
+text = "Initial Velocity:"
+
+[node name="FinalVel" type="Label" parent="CanvasLayer"]
+offset_left = 918.0
+offset_top = 390.0
+offset_right = 988.0
+offset_bottom = 413.0
+text = "Final Velocity: "
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

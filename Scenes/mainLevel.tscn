@@ -1,21 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://da46jqyrtye75"]
+[gd_scene load_steps=10 format=3 uid="uid://da46jqyrtye75"]
 
 [ext_resource type="PackedScene" uid="uid://deak8eqq18tgd" path="res://Artillery/artillery.tscn" id="1_nchq4"]
 [ext_resource type="Script" path="res://Scenes/main_level.gd" id="1_nhg6f"]
 [ext_resource type="PackedScene" uid="uid://bj43ynxq2shxr" path="res://Environment/grass.tscn" id="3_oh7ge"]
-[ext_resource type="PackedScene" uid="uid://btd8xgqlc25hn" path="res://Enemy/base_1.tscn" id="4_8aixu"]
 [ext_resource type="PackedScene" uid="uid://c3tagotqqwd6d" path="res://Ui/ruler.tscn" id="4_vjhoy"]
 [ext_resource type="PackedScene" uid="uid://bi0gwy6bybggl" path="res://Enemy/enemy_list.tscn" id="6_lotvf"]
 [ext_resource type="Script" path="res://Scenes/level_camera.gd" id="6_qmvmr"]
-[ext_resource type="PackedScene" uid="uid://6vlpdewxytn2" path="res://Enemy/base_2.tscn" id="8_7a0gp"]
-[ext_resource type="PackedScene" uid="uid://btxhoqaieawbk" path="res://Enemy/base_3.tscn" id="9_55a4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5pa"]
 size = Vector2(7.97, 8000)
 
+[sub_resource type="Gradient" id="Gradient_ctqye"]
+offsets = PackedFloat32Array(0, 0.871287, 1)
+colors = PackedColorArray(0.300022, 0.698951, 1, 1, 0, 0.858824, 0.878431, 1, 0.0179442, 0.590735, 0.0605493, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2v80"]
+gradient = SubResource("Gradient_ctqye")
+fill_to = Vector2(0, 0.910256)
+
 [node name="mainLevel" type="Node2D"]
 script = ExtResource("1_nhg6f")
-metadata/_edit_horizontal_guides_ = [803.0, 988.0, 712.0, 1080.0]
+metadata/_edit_horizontal_guides_ = [803.0, 988.0, 712.0, 1080.0, 994.0, 950.0]
 metadata/_edit_vertical_guides_ = [22500.0, 4522.0]
 
 [node name="Artillery" parent="." instance=ExtResource("1_nchq4")]
@@ -41,49 +46,122 @@ position = Vector2(1371, 334)
 zoom = Vector2(0.7, 0.7)
 script = ExtResource("6_qmvmr")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="EnemyList" parent="CanvasLayer" instance=ExtResource("6_lotvf")]
+[node name="EnemyList" parent="UI" instance=ExtResource("6_lotvf")]
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="UI"]
 offset_left = 3.0
 offset_top = 100.0
 offset_right = 126.0
 offset_bottom = 123.0
 text = "barrel position: "
 
-[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+[node name="LineEdit" type="LineEdit" parent="UI"]
 offset_left = 5.0
 offset_top = 133.0
-offset_right = 211.0
-offset_bottom = 164.0
-placeholder_text = "Enter distance here (m)"
+offset_right = 392.0
+offset_bottom = 190.0
+placeholder_text = "Enter distance here (m) to obtain required force"
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="Label2" type="Label" parent="UI"]
 offset_left = 7.0
 offset_top = 168.0
 offset_right = 211.0
 offset_bottom = 217.0
 
-[node name="viewSlider" type="HSlider" parent="CanvasLayer"]
+[node name="viewSlider" type="HSlider" parent="UI"]
 offset_right = 1917.0
 offset_bottom = 40.0
 min_value = 1371.0
 max_value = 21128.0
 value = 1371.0
 
-[node name="Base2" parent="." instance=ExtResource("4_8aixu")]
-position = Vector2(18106, 868)
+[node name="Angle" type="VSlider" parent="UI"]
+offset_left = 1815.0
+offset_top = 259.0
+offset_right = 1895.0
+offset_bottom = 959.0
+min_value = -50.0
+max_value = 90.0
+step = 0.0
 
-[node name="Base3" parent="." instance=ExtResource("8_7a0gp")]
-position = Vector2(11427, 847)
+[node name="Force" type="VSlider" parent="UI"]
+offset_left = 1715.0
+offset_top = 259.0
+offset_right = 1805.0
+offset_bottom = 959.0
+max_value = 50.0
+step = 0.0
 
-[node name="base3" parent="." instance=ExtResource("9_55a4n")]
-position = Vector2(5054, 862)
+[node name="fireButton" type="Button" parent="UI"]
+offset_left = 430.0
+offset_top = 531.0
+offset_right = 572.0
+offset_bottom = 627.0
+theme_override_font_sizes/font_size = 64
+text = "Fire!"
+
+[node name="AngleText" type="Label" parent="UI"]
+offset_left = 1810.0
+offset_top = 204.0
+offset_right = 1900.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 36
+text = "uwu
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/AngleText"]
+layout_mode = 0
+offset_top = 760.0
+offset_right = 90.0
+offset_bottom = 805.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Angle"
+
+[node name="InitVText" type="Label" parent="UI"]
+offset_left = 1715.0
+offset_top = 204.0
+offset_right = 1805.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 36
+text = "uwu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/InitVText"]
+layout_mode = 0
+offset_top = 760.0
+offset_right = 90.0
+offset_bottom = 805.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Force"
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_oh7ge")]
 position = Vector2(6, 1125)
 
-[connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="value_changed" from="CanvasLayer/viewSlider" to="levelCamera" method="_on_view_slider_value_changed"]
+[node name="Bg" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Bg"]
+offset_right = 1936.0
+offset_bottom = 1088.0
+texture = SubResource("GradientTexture2D_b2v80")
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_left = 6.0
+offset_top = 1124.0
+offset_right = 22506.0
+offset_bottom = 4849.0
+color = Color(0.752941, 0.407843, 0.176471, 1)
+
+[connection signal="text_changed" from="UI/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="value_changed" from="UI/viewSlider" to="levelCamera" method="_on_view_slider_value_changed"]
+[connection signal="value_changed" from="UI/Angle" to="Artillery" method="_on_angle_value_changed"]
+[connection signal="value_changed" from="UI/Force" to="Artillery" method="_on_force_value_changed"]
+[connection signal="pressed" from="UI/fireButton" to="Artillery" method="_on_fire_button_pressed"]
